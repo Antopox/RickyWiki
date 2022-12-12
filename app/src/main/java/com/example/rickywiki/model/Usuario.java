@@ -2,6 +2,7 @@ package com.example.rickywiki.model;
 
 import com.orm.SugarRecord;
 
+//Nuestra clase que vamos a guardar en una base de datos para gestionar los usuarios
 public class Usuario extends SugarRecord<Usuario> {
     private String user;
     private String passw;

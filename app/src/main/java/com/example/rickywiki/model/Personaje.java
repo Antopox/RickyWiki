@@ -1,5 +1,6 @@
 package com.example.rickywiki.model;
 
+//Clase creada a partir y para manejar los atributos recibidos por la API
 public class Personaje {
     private int id;
     private String name;

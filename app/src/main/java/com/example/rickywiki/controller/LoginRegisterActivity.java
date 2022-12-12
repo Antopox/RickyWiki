@@ -49,7 +49,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
         btLogin.setBackgroundColor(Color.GREEN);
         new taskConnections().execute("GET", "/character");
         btLogin.setOnClickListener(new View.OnClickListener() {
-
+            //Cuando se pulse el boton de login se comprobara que los campos no esten vacios
+            //Que el usuario exista en la base de datos y que la contraseña sea la misma que hay en la bd y ya permite la entrada
             @Override
             public void onClick(View view) {
                 String textPas = String.valueOf(txtPassword.getText());
@@ -75,7 +76,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
+        //Cuando pulsamos el boton de registro se comprueba que los campos no esten vacios, que el nombre de usuario no exista en la base de datos
+        // y ya se registra en la misma y permite el acceso
         btRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

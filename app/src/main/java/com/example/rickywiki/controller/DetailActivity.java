@@ -28,7 +28,8 @@ public class DetailActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
+        //Con la posicion del personaje que hemos pulsado lo sacamos de nuestro arraylist y cambiamos
+        //nuestros textView e imageView dependiendo de la seleccion
         Intent i = getIntent();
         Personaje character = MainActivity.personajes.get(i.getIntExtra("POS", 0));
 

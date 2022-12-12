@@ -27,6 +27,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+//En la actividad principal creamos una instancia de nuestro adaptador( al que le tenemos que pasar los datos) y un layoutmanager
+//y se los añadiremos a nuestro recyclerView
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recView;
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         recView = findViewById(R.id.recView);
         recAdapter = new RecyclerAdapter(personajes);
+
+        //Cuando pulsamos un registro del recyclerView cambiaremos a la actividad detalle pasando como extra la posicion del personaje
+        // que hemos pulsado
         recAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
+    //Iniciamos la actividad para los ajustes
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         int itemId = item.getItemId();
 

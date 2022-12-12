@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+//En esta clase vamos a declarar la conexion con la API y devolver la informacion mediante un String
+//Para esto debemos declarar en el manifest el permiso de internet
 public class HttpConnectRick {
 
     private static final String URL_BASE = "https://rickandmortyapi.com/api";

@@ -19,6 +19,7 @@ import com.example.rickywiki.model.Personaje;
 import java.util.ArrayList;
 
 //Esta clase unirá nuestro recyclerView con nuestro modelo personalizado de registro, ademas de con los datos que se le tienen que pasar por parametro
+//Vamos a implementar onClick porque queremos tener un listener en cada vista que forme el recyclerView
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder> implements View.OnClickListener{
 
     private ArrayList<Personaje> personajes;
@@ -35,6 +36,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     public RecyclerAdapter.RecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         contexto = parent.getContext();
+        //Generamos nuestra vista a partir de nuestro modelo
         View view = from(parent.getContext()).inflate(R.layout.custom_character_item_list,parent, false);
         RecyclerHolder recyclerHolder = new RecyclerHolder(view);
         view.setOnClickListener(this);
@@ -43,11 +45,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.RecyclerHolder holder, int position) {
+        //Ponemos los valores recibidos en sus sitios
         Personaje p = personajes.get(position);
         holder.name.setText(p.getName());
         holder.gender.setText(p.getGender());
         holder.species.setText(p.getSpecies());
         String status = p.getStatus();
+        //Dependiendo del estado se mostrara este TextView de un color diferente
         switch (status){
             case "Alive":
                 holder.status.setTextColor(Color.GREEN);
@@ -55,9 +59,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             case "Dead":
                 holder.status.setTextColor(Color.RED);
                 break;
+            default:
+                holder.status.setTextColor(Color.BLACK);
+                break;
         }
 
         holder.status.setText(status);
+        //Cargamos la imagen con glide
         Glide.with(contexto).load(p.getImage()).into(holder.image);
 
     }
@@ -86,6 +94,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         TextView species;
         TextView status;
 
+        //Unimos nuestras variables con las vistas reales de nuestro modelo
         public RecyclerHolder(@NonNull View itemView) {
             super(itemView);
 
