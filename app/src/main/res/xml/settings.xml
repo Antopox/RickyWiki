@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="General">
+
+    </PreferenceCategory>
+    <EditTextPreference
+        android:key="nombre_usuario"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Nombre de usuario" />
+</PreferenceScreen>
